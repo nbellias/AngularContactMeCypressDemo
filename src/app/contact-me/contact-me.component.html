@@ -1,0 +1,30 @@
+<h2>Contact Me</h2>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name</label>
+    <input id="name" formControlName="name" required />
+    <div *ngIf="contactForm.controls.name.invalid && contactForm.controls.name.touched">
+      Name is required and must be at least 3 characters.
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input id="email" formControlName="email" required />
+    <div *ngIf="contactForm.controls.email.invalid && contactForm.controls.email.touched">
+      Valid email is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="message">Message</label>
+    <textarea id="message" formControlName="message" required></textarea>
+    <div *ngIf="contactForm.controls.message.invalid && contactForm.controls.message.touched">
+      Message is required and must be at least 10 characters.
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+  <button type="button" (click)="onReset()">Reset</button>
+</form>
+
